@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 import styled from "styled-components";
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import YoutubeSearchedForOutlinedIcon from '@material-ui/icons/YoutubeSearchedForOutlined';
-import FavoriteOutlinedIcon from '@material-ui/icons/FavoriteOutlined';
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import YoutubeSearchedForOutlinedIcon from "@material-ui/icons/YoutubeSearchedForOutlined";
+import FavoriteOutlinedIcon from "@material-ui/icons/FavoriteOutlined";
 
 const Info = styled.div`
   opacity: 0;
@@ -46,7 +46,10 @@ const Circle = styled.div`
 `;
 
 const Image = styled.img`
-  height: 75%;
+  height: 55%;
+  width: 100%;
+  object-fit: cover;
+  padding: 20px;
   z-index: 1;
 `;
 
@@ -67,24 +70,24 @@ const Icon = styled.div`
   }
 `;
 
-const Product = ({item}) => {
-    return (
-        <Container>
-            <Circle/>
-            <Image src={item.img}/>
-            <Info>
-                <Icon>
-                    <ShoppingCartIcon/>
-                </Icon>
-                <Icon>
-                    <YoutubeSearchedForOutlinedIcon/>
-                </Icon>
-                <Icon>
-                    <FavoriteOutlinedIcon/>
-                </Icon>
-            </Info>
-        </Container>
-    );
+const Product = ({ item }) => {
+  return (
+    <Container>
+      <Circle />
+      <Image src={item.img} />
+      <Info>
+        <Icon>
+          <ShoppingCartIcon />
+        </Icon>
+        <Icon>
+          <YoutubeSearchedForOutlinedIcon />
+        </Icon>
+        <Icon>
+          <FavoriteOutlinedIcon />
+        </Icon>
+      </Info>
+    </Container>
+  );
 };
 
 export default Product;
