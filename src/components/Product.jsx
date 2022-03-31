@@ -3,6 +3,7 @@ import styled from "styled-components";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import YoutubeSearchedForOutlinedIcon from "@material-ui/icons/YoutubeSearchedForOutlined";
 import FavoriteOutlinedIcon from "@material-ui/icons/FavoriteOutlined";
+import { Link } from "react-router-dom";
 
 const Info = styled.div`
   opacity: 0;
@@ -70,6 +71,11 @@ const Icon = styled.div`
   }
 `;
 
+const linkStyle = {
+  textDecoration: "none",
+  color: "black",
+};
+
 const Product = ({ item }) => {
   return (
     <Container>
@@ -80,7 +86,9 @@ const Product = ({ item }) => {
           <ShoppingCartIcon />
         </Icon>
         <Icon>
-          <YoutubeSearchedForOutlinedIcon />
+          <Link to={`/product/${item._id}`} style={linkStyle}>
+            <YoutubeSearchedForOutlinedIcon />
+          </Link>
         </Icon>
         <Icon>
           <FavoriteOutlinedIcon />
