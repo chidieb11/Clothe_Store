@@ -9,6 +9,8 @@ import AddIcon from "@material-ui/icons/Add";
 import { mobile } from "../responsive";
 import { useLocation } from "react-router-dom";
 import { publicRequest } from "../requestMethod";
+import { useDispatch } from "react-redux";
+import { addProduct } from "../redux/cartRedux";
 
 const Container = styled.div``;
 
@@ -134,6 +136,7 @@ const Product = () => {
   const [color, setColor] = useState();
   const [size, setSize] = useState();
   const [quantity, setQuantity] = useState(1);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const getProduct = async () => {
@@ -154,7 +157,8 @@ const Product = () => {
   };
 
   const handleClick = () => {
-    // Update cart
+    // Update cart item(s)
+    dispatch(addProduct({ ...product, quantity, color, size }));
   };
   return (
     <Container>
