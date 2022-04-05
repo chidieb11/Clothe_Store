@@ -11,7 +11,8 @@ import StripeCheckout from "react-stripe-checkout";
 import { userRequest } from "../requestMethod";
 import { useNavigate } from "react-router-dom";
 
-const KEY = process.env.STRIPE_PUBLIC_KEY;
+const KEY =
+  "pk_test_51Kgo6MBd1hhjnUWazpifAFbks18prVdW14qkOmuMYNQ1kbsT3XvqACJzMTm5lr02lv3I0SWQltOUnIYHAd1SeJ8100zuTlzocF";
 
 const Container = styled.div``;
 
@@ -191,7 +192,7 @@ const Cart = () => {
   const cart = useSelector((state) => state.cart);
   console.log(cart);
   const [stripeToken, setStripeToken] = useState(null);
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   const onToken = (token) => {
     setStripeToken(token);
@@ -205,14 +206,15 @@ const Cart = () => {
           tokenId: stripeToken.id,
           amount: 200,
         });
-        history.push("/success", {
-          stripeData: res.data,
-          products: cart,
+        navigate("/success", {
+          data: res.data,
+          // stripeData: res.data,
+          // products: cart,
         });
       } catch {}
     };
     stripeToken && makeRequest();
-  }, [stripeToken, cart.total, history]);
+  }, [stripeToken, cart.total, navigate]);
   return (
     <Container>
       <Navbar />
@@ -296,7 +298,7 @@ const Cart = () => {
           </Summary>
         </Bottom>
       </Wrapper>
-      <Footer />
+      <Footer />;
     </Container>
   );
 };
