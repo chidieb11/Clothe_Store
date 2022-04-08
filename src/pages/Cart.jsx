@@ -207,9 +207,9 @@ const Cart = () => {
           amount: 200,
         });
         navigate("/success", {
-          data: res.data,
-          // stripeData: res.data,
-          // products: cart,
+          // data: res.data,
+          stripeData: res.data,
+          products: cart,
         });
       } catch {}
     };
