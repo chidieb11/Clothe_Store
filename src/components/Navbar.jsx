@@ -8,6 +8,11 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Container = styled.div`
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: whitesmoke;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   height: 60px;
   ${mobile({ height: "50px" })}
 `;
@@ -69,6 +74,7 @@ const SearchContainer = styled.div`
 
 const Input = styled.input`
   border: none;
+  background: inherit;
   outline: none;
   ${mobile({ width: "50px" })}
 `;
@@ -100,8 +106,12 @@ const Navbar = () => {
           </Link>
         </Center>
         <Right>
-          <MenuItem>register</MenuItem>
-          <MenuItem>login</MenuItem>
+          <Link to="/register" style={linkStyle}>
+            <MenuItem>register</MenuItem>
+          </Link>
+          <Link to="/login" style={linkStyle}>
+            <MenuItem>login</MenuItem>
+          </Link>
           <Link to="/cart" style={linkStyle}>
             <MenuItem>
               <Badge badgeContent={quantity} color="primary">
