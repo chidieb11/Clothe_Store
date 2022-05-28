@@ -1,5 +1,5 @@
 # Here is a link to the live project hosted on netlify
-https://neon-granita-f09293.netlify.app/
+https://wearsstore.netlify.app/
 
 # Getting Started with Create React App
 
